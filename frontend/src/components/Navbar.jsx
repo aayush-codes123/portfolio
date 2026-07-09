@@ -46,13 +46,13 @@ const Navbar = () => {
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <div
-            className="w-[28px] h-[28px] object-contain cursor-pointer text-secondary"
+            className="w-7 h-7 object-contain cursor-pointer text-secondary"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </div>
 
-          <div className={`${!isOpen ? 'hidden' : 'flex'} p-6 absolute top-20 right-4 my-2 min-w-[140px] z-10 rounded-xl bg-white shadow-xl border border-gray-100`}>
+          <div className={`${!isOpen ? 'hidden' : 'flex'} p-6 absolute top-20 right-4 my-2 min-w-35 z-10 rounded-xl bg-white shadow-xl border border-gray-100`}>
             <ul className="list-none flex justify-end items-start flex-col gap-4">
               {navLinks.map((link) => (
                 <li
