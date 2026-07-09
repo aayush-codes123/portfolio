@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('overflow-hidden', isOpen);
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [isOpen]);
 
   const navLinks = [
     { title: "About", id: "about" },
@@ -52,7 +57,7 @@ const Navbar = () => {
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </div>
 
-          <div className={`${!isOpen ? 'hidden' : 'flex'} p-6 absolute top-20 right-4 my-2 min-w-35 z-10 rounded-xl bg-white shadow-xl border border-gray-100`}>
+          <div className={`${!isOpen ? 'hidden' : 'flex'} p-6 absolute top-20 left-4 right-4 my-2 z-10 rounded-xl bg-white shadow-xl border border-gray-100`}>
             <ul className="list-none flex justify-end items-start flex-col gap-4">
               {navLinks.map((link) => (
                 <li
